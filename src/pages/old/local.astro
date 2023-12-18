@@ -1,0 +1,43 @@
+---
+import Old from "../../layouts/Old.astro";
+---
+
+<Old>
+	<header>
+		<div id="logo"></div>
+	</header>
+	<nav>
+		<menu>
+			<ul>
+				<li><a href="home">EMPRESA</a></li>
+				<li><a href="destino">DESTINOS</a></li>
+				<li><a href="fotos">GALERIA</a></li>
+				<li><a href="local" style="border-bottom: 4px solid #fff;">LOCALIZAÇÃO</a></li>
+				<li><a href="call">CONTATE-NOS</a></li>
+			</ul>
+		</menu>
+	</nav>
+	<main>
+		<article>
+			<div id="localiza"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d128050.5760503792!2d30.246237446888575!3d59.902431302811635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4696378cc74a65ed%3A0x6dc7673fab848eff!2zU8OjbyBQZXRlcnNidXJnbywgUsO6c3NpYQ!5e0!3m2!1spt-BR!2sbr!4v1512501730081" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe></div>
+			<section id="info">
+				<div id="local_text"><p>Rua Zagorodnyy Prospect, 345</p> <p>Sâo Petersbugo, Russia</p></div>
+				<div id="gps_icon"></div>
+			</section>
+			<div class="peso"></div>
+		</article>
+	</main>
+	<footer>
+		<div class="logo"></div>
+		<div id="numero">4002-8922</div>
+		<div class="peso"></div>
+		<hr />
+		 Desenvolvido por Gabriel Gonçalves
+	</footer>
+</Old>
+
+<style>
+	article {
+		box-shadow: 0px 5px 20px 0px #000;
+	}
+</style>

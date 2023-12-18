@@ -1,0 +1,102 @@
+---
+import Old from "../../layouts/Old.astro";
+
+---
+
+<Old>
+  
+<header>
+	<div id="logo"></div>
+</header>
+<nav>
+	<menu>
+		<ul>
+			<li><a href="home">EMPRESA</a></li>
+			<li><a href="destino">DESTINOS</a></li>
+			<li><a href="fotos">GALERIA</a></li>
+			<li><a href="local">LOCALIZAÇÃO</a></li>
+			<li><a href="call" style="border-bottom: 4px solid #fff;">CONTATE-NOS</a></li>
+		</ul>
+	</menu>
+</nav>
+
+<main>
+	<article>
+		<section id="campos">
+			<label>Primeiro Nome</label>
+			<input type="text" />
+			<label>Ultimo Nome</label>
+			<input type="text" />
+			<label>Email</label>
+			<input type="email" />
+			<label>Sua Mensagem</label>
+			<input type="text" id="textarea" />
+			<input type="submit" />
+		</section>
+		<section id="msg"></section>
+		<div class="peso"></div>
+	</article>
+	<aside>
+		<h3>Destinos</h3>
+		<div id="dest1">
+			<a href="inglaterra">
+				<p><b>FRANÇA</b></p>
+			</a>
+		</div>
+		<div id="dest2">
+			<a href="italia">
+				<p>ITÁLIA</p>
+			</a>
+		</div>
+		<div id="dest3">
+			<a href="franca">
+				<p>INGLATERRA</p>
+			</a>
+		</div>
+	</aside>
+</main>
+
+<footer>
+	<div class="logo"></div>
+	<div id="numero">4002-8922</div>
+	<div class="peso"></div>
+	<hr />
+	 Desenvolvido por Gabriel Gonçalves
+</footer>
+
+</Old>
+
+
+
+
+<style type="text/css">
+	main {
+		background-image: url('/src/assets/old/body_call2.jpg');
+		background-attachment: scroll;
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		padding-top: 4em;
+	}
+	nav menu ul li {
+		width: 19.75%;
+	}
+	aside {
+		background-color: rgba(255, 255, 255, 0.6);
+	}
+	article {
+		background-color: rgba(255, 255, 255, 0.6);
+		width: 79%;
+		border-right: 3px solid #9f0002;
+	}
+	aside p {
+		color: #fff;
+		opacity: 0;
+		width: 98%;
+		height: 11em;
+		padding-left: 0.5em;
+	}
+	aside p:hover {
+		opacity: 1;
+	}
+</style>
