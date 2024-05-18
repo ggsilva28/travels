@@ -1,0 +1,33 @@
+<nav class="menu-container">
+		<slot />
+</nav>
+
+<style lang="scss">
+	.menu-container {
+		--padding-x: 32px;
+
+		position: fixed;
+		top: 0;
+
+		width: calc(100% - var(--padding-x) * 2);
+
+		padding: 16px var(--padding-x);
+
+			display: flex;
+			flex-flow: row nowrap;
+			justify-content: space-between;
+			align-items: center;
+
+		transition: 300ms;
+
+		&.blurry {
+			backdrop-filter: blur(8px); 
+		}
+	}
+</style>
+
+<script>
+	import * as menu from "./menu.ts";
+
+	menu.scrollBlur();
+</script>

@@ -1,0 +1,43 @@
+---
+import { Image } from "astro:assets";
+import Menu from "@components/menu.astro";
+import IMGLogo from "@assets/new/logo.png";
+import IMGBgHeader from "@assets/new/bg-header.png";
+import BtnPlane from "@components/btn-plane.astro";
+---
+
+<header id="header">
+	<Menu>
+		<Image class="logo" src={IMGLogo} alt="Logo Out Country" />
+
+		<div class="buttons">
+			<BtnPlane>Destino</BtnPlane>
+			<BtnPlane>Galeria</BtnPlane>
+			<BtnPlane>Onde nos encontrar</BtnPlane>
+			<BtnPlane>Entre em contato</BtnPlane>
+		</div>
+	</Menu>
+	
+	<Image class="bg-header" src={IMGBgHeader} alt="Imagem de Paris mostrando a torre Eiffel" />
+</header>
+
+<style lang="scss">
+	#header {
+		position: relative;
+	}
+
+	.logo {
+		width: auto;
+		height: 35px;
+	}
+
+	.bg-header {
+		width: 100%;
+	}
+
+	.buttons {
+		display: flex;
+		flex-flow: row nowrap;
+		gap: 12px;
+	}
+</style>

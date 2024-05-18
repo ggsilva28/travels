@@ -1,0 +1,19 @@
+<button class="btn btn-plane">
+    <slot />
+</button>
+
+<style lang="scss">
+   .btn.btn-plane{
+        padding: 12px 32px;
+
+        background-color: transparent;
+        border: 1px solid transparent;
+        color: var(--white);
+
+        transition: 300ms;
+
+        &:hover{
+            border: 1px solid var(--white);
+        }
+    }
+</style>
