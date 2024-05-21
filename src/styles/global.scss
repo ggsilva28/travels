@@ -13,8 +13,27 @@ button.btn {
 	}
 }
 
-.el-limit {
+.content-limit{
 	width: 100%;
 	max-width: 1024px;
 	margin: 0 auto;
+	padding: 0px 16px;
+}
+
+.desktop-only{
+	display: inherit;
+}
+
+.mobile-only{
+	display: none;
+}
+
+@media screen and (max-width: 1024px) {
+	.desktop-only{
+		display: none;
+	}
+	
+	.mobile-only{
+		display: inherit;
+	}
 }

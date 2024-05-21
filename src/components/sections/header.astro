@@ -2,7 +2,6 @@
 import { Image } from "astro:assets";
 import Menu from "@components/menu.astro";
 import IMGLogo from "@assets/new/logo.png";
-import IMGBgHeader from "@assets/new/bg-header.png";
 import BtnPlane from "@components/btn-plane.astro";
 ---
 
@@ -17,22 +16,44 @@ import BtnPlane from "@components/btn-plane.astro";
 			<BtnPlane>Entre em contato</BtnPlane>
 		</div>
 	</Menu>
-	
-	<Image class="bg-header" src={IMGBgHeader} alt="Imagem de Paris mostrando a torre Eiffel" />
+
+	<div class="content-limit">
+		<h1>Querendo  <br class="mobile-only"> fazer um <br class="desktop-only"> intercâmbio?</h1>
+		<p>Confira nossos destinos</p>
+	</div>
 </header>
 
 <style lang="scss">
 	#header {
 		position: relative;
+		height: 90vh;
+
+		background-image: url("../../assets/new/bg-header.png");
+		background-size: cover;
+		background-position: center center;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		h1{
+			font-size: 48px;
+			font-weight: 900;
+			color: var(--white);
+			line-height: 120%;
+		}
+
+		p{
+			font-size: 16px;
+			font-weight: 900;
+			color: var(--white);
+			margin-top: 32px;
+		}
 	}
 
 	.logo {
 		width: auto;
 		height: 35px;
-	}
-
-	.bg-header {
-		width: 100%;
 	}
 
 	.buttons {
