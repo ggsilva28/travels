@@ -1,17 +1,19 @@
 button.btn {
-	cursor: pointer;
-
 	width: max-content;
 	height: max-content;
 	padding: 8px 16px;
-    border-radius: 8px;
+	border-radius: 8px;
 
 	font-size: 16px;
 	font-weight: 500;
 	border: none;
+
+	&:hover {
+		cursor: pointer;
+	}
 }
 
-.el-limit{
+.el-limit {
 	width: 100%;
 	max-width: 1024px;
 	margin: 0 auto;

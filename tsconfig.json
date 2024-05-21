@@ -13,6 +13,7 @@
       "@assets/*": ["src/assets/*"],
       "@pages/*": ["src/pages/*"],
       "@styles/*": ["src/styles/*"],
+      "@utils/*": ["src/utils/*"],
     }
   }
 }

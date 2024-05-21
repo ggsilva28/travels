@@ -1,19 +1,48 @@
-<button class="btn btn-plane">
-    <slot />
+---
+import SVGPlane from "@assets/new/plane.svg?raw";
+import { randomId } from "@utils/generator";
+
+const id = "btn-plane-" + randomId();
+---
+
+<button btn-plane class="btn btn-plane" id={id}>
+	<div class="icon-plane">
+		<Fragment set:html={SVGPlane} />
+	</div>
+	<slot />
 </button>
 
 <style lang="scss">
-   .btn.btn-plane{
-        padding: 12px 32px;
+	.btn.btn-plane {
+		position: relative;
+		padding: 12px 32px;
 
-        background-color: transparent;
-        border: 1px solid transparent;
-        color: var(--white);
+		background-color: transparent;
+		border: 1px solid transparent;
+		color: var(--white);
 
-        transition: 300ms;
+		transition: 300ms;
 
-        &:hover{
-            border: 1px solid var(--white);
-        }
-    }
+		.icon-plane {
+			position: absolute;
+			left: -10px;
+			top: calc(50% - 10px);
+
+			width: 20px;
+			height: 20px;
+
+			opacity: 0;
+
+			transition: 500ms ease-in-out;
+		}
+
+		&:hover {
+			border: 1px solid var(--white);
+
+			.icon-plane {
+				opacity: 1;
+			}
+		}
+	}
 </style>
+
