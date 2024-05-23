@@ -1,13 +1,11 @@
 ---
-import SVGPlane from "@assets/new/plane.svg?raw";
-import { randomId } from "@utils/generator";
-
-const id = "btn-plane-" + randomId();
+import SVGPlane from "@assets/new/icons/plane.svg?raw";
+import Icon from "./icon.astro";
 ---
 
-<button btn-plane class="btn btn-plane" id={id}>
+<button class="btn btn-plane">
 	<div class="icon-plane">
-		<Fragment set:html={SVGPlane} />
+		<Icon icon={SVGPlane} /> 
 	</div>
 	<slot />
 </button>
@@ -45,4 +43,3 @@ const id = "btn-plane-" + randomId();
 		}
 	}
 </style>
-

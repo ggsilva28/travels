@@ -1,0 +1,9 @@
+---
+
+interface Props {
+	icon: string ;
+}
+
+const { icon } = Astro.props;
+---
+<Fragment set:html={icon} />

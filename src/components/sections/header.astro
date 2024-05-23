@@ -3,6 +3,12 @@ import { Image } from "astro:assets";
 import Menu from "@components/menu.astro";
 import IMGLogo from "@assets/new/logo.png";
 import BtnPlane from "@components/btn-plane.astro";
+import BtnBlur from "@components/btn-blur.astro";
+import SVGFrance from "@assets/new/france.svg?raw";
+import ICONArrowRight from "@assets/new/icons/arrow-right.svg?raw";
+
+import Icon from "@components/icon.astro";
+
 ---
 
 <header id="header">
@@ -18,8 +24,19 @@ import BtnPlane from "@components/btn-plane.astro";
 	</Menu>
 
 	<div class="content-limit">
-		<h1>Querendo  <br class="mobile-only"> fazer um <br class="desktop-only"> intercâmbio?</h1>
+		<h1>Querendo <br class="mobile-only" /> fazer um <br class="desktop-only" /> intercâmbio?</h1>
 		<p>Confira nossos destinos</p>
+		<div class="btn-row">
+			<BtnBlur>
+				<Icon icon={SVGFrance} /> França <Icon icon={ICONArrowRight} />
+			</BtnBlur>
+			<BtnBlur>
+				<Icon icon={SVGFrance} /> Itália <Icon icon={ICONArrowRight} />
+			</BtnBlur>
+			<BtnBlur>
+				<Icon icon={SVGFrance} /> Inglaterra <Icon icon={ICONArrowRight} />
+			</BtnBlur>
+		</div>
 	</div>
 </header>
 
@@ -36,18 +53,25 @@ import BtnPlane from "@components/btn-plane.astro";
 		align-items: center;
 		justify-content: center;
 
-		h1{
+		h1 {
 			font-size: 48px;
 			font-weight: 900;
 			color: var(--white);
 			line-height: 120%;
 		}
 
-		p{
+		p {
 			font-size: 16px;
 			font-weight: 900;
 			color: var(--white);
 			margin-top: 32px;
+		}
+
+		.btn-row {
+			display: flex;
+			flex-flow: row nowrap;
+			gap: 12px;
+			margin-top: 12px;
 		}
 	}
 

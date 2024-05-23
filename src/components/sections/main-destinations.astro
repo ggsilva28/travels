@@ -1,0 +1,45 @@
+---
+import CardDestination from "@components/card-destination.astro";
+
+import IMGFranceCover from "@assets/new/france/01.png";
+import IMGItalyCover from "@assets/new/italy/01.png";
+import IMGEnglandCover from "@assets/new/england/01.png";
+---
+
+<section id="main-destinations">
+	<div class="content-limit">
+		<h1>Princiapais destinos</h1>
+
+		<div class="destinations-list">
+			<CardDestination imgSrc={IMGFranceCover} title="França" description="Torre Eiffel, Château de Chenonceau, Museu D’Orsay, Arco do Triunfo..." />
+			<CardDestination imgSrc={IMGItalyCover} title="Itália" description="Pisa, Siena, Milão, Florença, Verona, Taormina, Roma, Bolonha..." />
+			<CardDestination imgSrc={IMGEnglandCover} title="Inglaterra" description="Castelo de Windsor, Stonehenge, Termas Romanas de Bath..." />
+		</div>
+	</div>
+</section>
+
+<style lang="scss">
+	#main-destinations {
+		padding: 128px 0px;
+		background-color: #f1f1f1;
+
+		background-image: url("../../assets/new/bg-main-destinations.png");
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center center;
+
+		h1 {
+			font-size: 48px;
+			font-weight: 900;
+			color: var(--primary-color);
+            margin-bottom: 48px;
+		}
+
+
+        .destinations-list{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 48px;
+        }
+	}
+</style>

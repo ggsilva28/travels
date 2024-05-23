@@ -1,5 +1,5 @@
 <nav class="menu-container">
-		<slot />
+	<slot />
 </nav>
 
 <style lang="scss">
@@ -12,16 +12,18 @@
 		width: calc(100% - var(--padding-x) * 2);
 
 		padding: 16px var(--padding-x);
+		z-index: 3;
 
-			display: flex;
-			flex-flow: row nowrap;
-			justify-content: space-between;
-			align-items: center;
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: space-between;
+		align-items: center;
 
 		transition: 300ms;
 
 		&.blurry {
-			backdrop-filter: blur(8px); 
+			backdrop-filter: blur(4px);
+			background: rgba(0, 0, 0, 0.4);
 		}
 	}
 </style>
