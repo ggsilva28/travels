@@ -1,0 +1,110 @@
+---
+import Post1 from "@assets/new/france/02.png";
+import Post2 from "@assets/new/france/03.png";
+import Post3 from "@assets/new/france/04.png";
+import Post4 from "@assets/new/england/02.png";
+import Post5 from "@assets/new/england/03.png";
+import Post6 from "@assets/new/england/04.png";
+import Post7 from "@assets/new/italy/02.png";
+import Post8 from "@assets/new/italy/03.png";
+import Post9 from "@assets/new/italy/04.png";
+
+import { Image } from "astro:assets";
+import Icon from "@components/icon.astro";
+import SVGInstagram from "@assets/new/icons/instagram.svg?raw";
+
+const posts = [Post1, Post2, Post3, Post4, Post5, Post6, Post7, Post8, Post9];
+---
+
+<section id="gallery">
+	<div class="content-limit">
+		<h1>De uma olhada no <br class="desktop-only" /> que <strong> já proporcionamos</strong></h1>
+
+		<a class="gallery-grid" href="https://www.instagram.com/" target="_blank">
+			{
+				posts.map((post) => (
+					<div class="gallery-grid-item">
+						<Image class="img-cover" src={post} alt="Post" />
+						<div class="item-text"> Ver Post </div>
+					</div>
+				))
+			}
+		</a>
+
+		<a class="btn btn-instagram btn-shadow" href="https://www.instagram.com/" target="_blank">
+			<Icon icon={SVGInstagram} />
+			<span>
+				Veja mais em <strong>@out_country</strong>
+			</span>
+		</a>
+	</div>
+</section>
+
+<style lang="scss">
+	#gallery {
+		padding: 128px 0px;
+		background-color: #f1f1f1;
+
+		background-image: url("../../assets/new/pattern.png");
+		background-repeat: repeat;
+		background-position: center center;
+
+		strong {
+			font-weight: 800;
+			color: var(--primary-color);
+		}
+
+		h1 {
+			font-size: 48px;
+			color: var(--text-dark);
+			text-align: center;
+			margin-bottom: 48px;
+		}
+
+		.gallery-grid {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 16px;
+
+			.gallery-grid-item {
+				cursor: pointer;
+				position: relative;
+				aspect-ratio: 1;
+				overflow: hidden;
+
+				img {
+					transition: 300ms;
+				}
+
+				.item-text {
+					position: absolute;
+					left: 0;
+					bottom: -52px;
+					width: 100%;
+
+					color: var(--white);
+					text-align: center;
+					font-weight: bold;
+
+					transition: 300ms ease-in-out;
+				}
+
+				&:hover {
+					img {
+						filter: brightness(0.5) blur(2px);
+					}
+
+					.item-text {
+						bottom: 16px;
+					}
+				}
+			}
+		}
+
+		.btn-instagram {
+			margin: 48px auto 0;
+			padding:  12px;
+			gap: 12px;
+		}
+	}
+</style>

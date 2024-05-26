@@ -11,7 +11,7 @@ const { imgSrc, title, description } = Astro.props;
 ---
 
 <div class="card-destination">
-	<Image class="card-destination-cover" src={imgSrc} alt="Card Destinations" />
+	<Image class="card-destination-cover img-cover" src={imgSrc} alt="Card Destinations" />
 
 	<div class="card-destination-content">
 		<div class="card-destination-header">
@@ -38,11 +38,7 @@ const { imgSrc, title, description } = Astro.props;
 
 		transition: 300ms;
 
-		.card-destination-cover {
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-		}
+		
 
 		&:hover {
 			box-shadow: rgb(38, 57, 77) 0px 20px 30px -5px;
