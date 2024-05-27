@@ -1,7 +1,29 @@
+---
+import SVGMapPin from "@assets/new/icons/map-pin.svg?raw";
+import Icon from "@components/icon.astro";
+---
+
 <section id="find-us">
-	<div class="map"></div>
-	<div class="adress"></div>
-	<div class="about-us"></div>
+	<div class="map">
+		<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1475.8250088825628!2d-0.1465566121053569!3d51.53097438880616!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-BR!2sbr!4v1716849533730!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+	</div>
+	<div class="address">
+		<h5>
+			Venha conhecer onde <br class="desktop-only" />
+			<strong>seus <span> sonhos começam</span></strong>
+		</h5>
+		<div class="address-line">
+			<Icon icon={SVGMapPin} />
+			<p>
+				Av. Paulista, 324 - Bela Vista <br class="desktop-only" />
+				<strong> São Paulo/SP </strong>
+			</p>
+		</div>
+	</div>
+	<div class="about-us">
+		<h4>Quer saber mais sobre nós?</h4>
+		<p>A Out Travel Intercâmbios é uma empresa multinacional com 10 anos de experiência no mercado. Nosso objetivo é ajudar jovens e adultos a conhecer o mundo de forma mais fácil e simples, oferecendo planos de viagem e serviços personalizados para cada cliente.</p>
+	</div>
 </section>
 
 <style>
@@ -17,22 +39,75 @@
 		background-color: blue;
 	}
 
-    #find-us{
-        display: grid;
-        grid-template-areas: 'map adress' 'map about-us';
-        grid-template-columns: 2fr 1fr;
-        height: 70vh;
-        
-        .map{
-            grid-area: map;
-        }
+	#find-us {
+		display: grid;
+		grid-template-areas: "map adress" "map about-us";
+		grid-template-columns: 2fr 1fr;
 
-        .adress{
-            grid-area: adress;
-        }
+		.map {
+			grid-area: map;
 
-        .about-us{
-            grid-area: about-us;
-        }
-    }
+			iframe {
+				width: 100%;
+				height: 100%;
+			}
+		}
+
+		.address {
+			grid-area: adress;
+
+			padding: 32px;
+			background-color: var(--fill);
+
+			h5 {
+				font-size: 32px;
+				color: var(--text-dark);
+
+				strong {
+					font-weight: 800;
+				}
+
+				span {
+					color: var(--primary-color);
+				}
+			}
+
+			.address-line {
+				display: flex;
+				flex-flow: row nowrap;
+				align-items: center;
+				justify-content: flex-start;
+				gap: 8px;
+				margin: 16px 0 64px;
+				color: var(--text-dark);
+
+                strong {
+                    font-weight: 800;
+                }
+			}
+		}
+
+		.about-us {
+			grid-area: about-us;
+
+			padding: 32px 128px 256px 32px;
+			background-image: url("../../assets/new/bg-about-us.png");
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center bottom;
+
+			h4 {
+				font-size: 40px;
+				font-weight: 700;
+				color: var(--white);
+			}
+
+			p {
+				font-size: 16px;
+				line-height: 150%;
+				color: var(--white);
+				margin-top: 16px;
+			}
+		}
+	}
 </style>
