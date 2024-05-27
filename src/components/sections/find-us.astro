@@ -1,0 +1,38 @@
+<section id="find-us">
+	<div class="map"></div>
+	<div class="adress"></div>
+	<div class="about-us"></div>
+</section>
+
+<style>
+	.map {
+		background: #f1f1f1;
+	}
+
+	.adress {
+		background-color: red;
+	}
+
+	.about-us {
+		background-color: blue;
+	}
+
+    #find-us{
+        display: grid;
+        grid-template-areas: 'map adress' 'map about-us';
+        grid-template-columns: 2fr 1fr;
+        height: 70vh;
+        
+        .map{
+            grid-area: map;
+        }
+
+        .adress{
+            grid-area: adress;
+        }
+
+        .about-us{
+            grid-area: about-us;
+        }
+    }
+</style>
