@@ -1,15 +1,76 @@
 ---
 import IMGTravels from "@assets/new/travels.png";
+import SVGWhatsapp from "@assets/new/icons/whatsapp.svg?raw";
 import { Image } from "astro:assets";
+import Icon from "@components/icon.astro";
 ---
 
 <section id="contact">
 	<div class="content-limit">
 		<Image src={IMGTravels} alt="Viajante andando pela cidade e imagem de veiculo viajando pela estrada" />
 
-        <div class="info">
-            <h3> <strong> Entre em contato </strong>
-                e comece seu sonho</h3>
-        </div>
+		<div class="info">
+			<h3>
+				<strong> Entre em contato </strong>
+				<br class="mobile-only" />
+				e comece seu sonho
+			</h3>
+
+			<p>Temos agentes preparados para lhe ajudar a encontrar seu destino de segunda a sexta das 8h as 18h</p>
+
+			<hr />
+
+			<a class="btn btn-contact" href="https://api.whatsapp.com/send/?phone=0&text&type=phone_number&app_absent=0" target="_blank">
+				<Icon icon={SVGWhatsapp} />
+				Iniciar conversa
+			</a>
+		</div>
 	</div>
 </section>
+
+<style lang="scss">
+	#contact {
+		background-color: var(--fill);
+		padding: 64px 0px;
+
+		.content-limit {
+			display: flex;
+			flex-flow: row nowrap;
+			align-items: center;
+			justify-content: center;
+			gap: 32px;
+
+			h3 {
+				font-size: 40px;
+				font-weight: 500;
+				color: var(--text-dark);
+				line-height: 100%;
+
+				strong {
+					color: var(--primary-color);
+					font-weight: 800;
+				}
+			}
+
+			p {
+				font-size: 16px;
+				font-weight: 500;
+				color: var(--text-dark);
+				line-height: 150%;
+				margin-top: 16px;
+			}
+			hr {
+				background-color: var(--border);
+				max-width: 70%;
+				margin: 24px 0;
+			}
+
+            .btn-contact{
+                background-color: var(--white);
+                border: 1px solid var(--border);
+                font-weight: 700;
+                color: var(--green);
+            }
+		}
+	}
+</style>
