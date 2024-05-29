@@ -1,18 +1,16 @@
 ---
 import Contact from "@components/sections/contact.astro";
-import FindUs from "@components/sections/find-us.astro";
 import Footer from "@components/sections/footer.astro";
 import Gallery from "@components/sections/gallery.astro";
-import Header from "@components/sections/header.astro";
-import MainDestinations from "@components/sections/main-destinations.astro";
+import Header from "@components/details/header.astro";
 import Layout from "@layouts/Layout.astro";
+import Content from "@components/details/content.astro";
 ---
 
 <Layout title="Out Country">
 	<Header />
-	<MainDestinations />
+	<Content />
 	<Gallery />
-	<FindUs />
 	<Contact />
 	<Footer />
 </Layout>

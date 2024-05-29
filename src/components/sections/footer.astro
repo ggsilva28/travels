@@ -1,0 +1,187 @@
+---
+import IMGLogo from "@assets/new/logo.png";
+
+import ICONInstagram from "@assets/new/icons/red-instagram.svg?raw";
+import ICONFacebook from "@assets/new/icons/red-facebook.svg?raw";
+import ICONPinterest from "@assets/new/icons/red-pinterest.svg?raw";
+import ICONYoutube from "@assets/new/icons/red-youtube.svg?raw";
+import ICONWhatsapp from "@assets/new/icons/red-whatsapp.svg?raw";
+
+import { Image } from "astro:assets";
+import Icon from "@components/icon.astro";
+
+const socialMidias = [
+	{
+		link: "https://www.instagram.com/",
+		icon: ICONInstagram
+	},
+	{
+		link: "https://www.pinterest.com/",
+		icon: ICONPinterest
+	},
+	{
+		link: "https://www.youtube.com/",
+		icon: ICONYoutube
+	},
+	{
+		link: "https://www.facebook.com/",
+		icon: ICONFacebook
+	},
+	{
+		link: "https://web.whatsapp.com/",
+		icon: ICONWhatsapp
+	}
+];
+---
+
+<footer>
+	<div class="content-limit">
+		<div class="footer-menu">
+			<Image src={IMGLogo} alt="Logo Out Country" />
+
+			<a class="menu-item" href="#main-destinations">
+				Destinos
+				<div class="divider"></div>
+			</a>
+			<a class="menu-item" href="#gallery">
+				Galeria
+				<div class="divider"></div>
+			</a>
+			<a class="menu-item" href="#find-us">
+				Onde nos encontrar
+				<div class="divider"></div>
+			</a>
+			<a class="menu-item" href="#contact">Entre em contato</a>
+		</div>
+		<div class="social-network">
+			<div class="title">
+				Redes sociais
+				<div class="divider reverse"></div>
+			</div>
+			<div class="icons">
+				{
+					socialMidias.map(({ link, icon }) => (
+						<a href={link} target="_blank" rel="noreferrer">
+							<Icon icon={icon} />
+						</a>
+					))
+				}
+			</div>
+		</div>
+	</div>
+</footer>
+
+<style lang="scss">
+	footer {
+		--divider-width: 70%;
+
+		padding: 48px 0px;
+		background-image: url("../../assets/new//bg-footer.png");
+		background-size: cover;
+		background-position: center center;
+		background-repeat: no-repeat;
+
+		.content-limit {
+			display: flex;
+			flex-flow: row nowrap;
+			align-items: flex-end;
+			justify-content: center;
+			gap: 16px;
+		}
+
+		.divider {
+			position: relative;
+
+			width: var(--divider-width);
+			height: 1.5px;
+			margin: 8px 0 8px 0;
+
+			background-color: var(--primary-color);
+
+			transition: 300ms;
+
+			&::before,
+			&::after {
+				content: "";
+				position: absolute;
+				top: 0;
+				height: 1.5px;
+				background-color: var(--primary-color);
+			}
+
+			&::before {
+				right: -16px;
+				width: 12px;
+			}
+
+			&::after {
+				right: -28px;
+				width: 8px;
+			}
+
+			&.reverse {
+				left: calc(100% - var(--divider-width));
+
+				&::before {
+					right: unset;
+					left: -16px;
+				}
+
+				&::after {
+					right: unset;
+					left: -28px;
+				}
+			}
+		}
+
+		.footer-menu {
+			flex: 1;
+
+			img {
+				width: 190px;
+				height: auto;
+				margin-bottom: 16px;
+			}
+
+			.menu-item {
+				cursor: pointer;
+				display: block;
+				width: max-content;
+
+				font-size: 14px;
+				font-weight: 600;
+				color: var(--white);
+				text-decoration: none;
+
+				&:hover .divider {
+					width: calc(var(--divider-width) + 8px);
+				}
+			}
+		}
+
+		.social-network {
+			flex: 1;
+			display: flex;
+			flex-direction: column;
+			align-items: flex-end;
+			justify-content: center;
+
+			.title {
+				width: max-content;
+
+				color: var(--white);
+				font-size: 20px;
+				font-weight: 700;
+			}
+
+			.icons{
+				display: flex;
+				flex-flow: row nowrap;
+				align-items: center;
+				justify-content: flex-end;
+				gap: 16px;
+				margin-top: 16px;
+			}
+		}
+	}
+</style>

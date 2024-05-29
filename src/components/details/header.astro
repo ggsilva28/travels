@@ -1,0 +1,69 @@
+---
+import { Image } from "astro:assets";
+import Menu from "@components/menu.astro";
+import IMGLogo from "@assets/new/logo.png";
+import BtnBlur from "@components/btn-blur.astro";
+import ICONChevronLeft from "@assets/new/icons/chevron-left.svg?raw";
+import ICONShare from "@assets/new/icons/share.svg?raw";
+
+import Icon from "@components/icon.astro";
+---
+
+<header id="header-details">
+	<Menu>
+		<div class="content-limit">
+			<BtnBlur>
+				<Icon icon={ICONChevronLeft} /> Voltar
+			</BtnBlur>
+
+			<Image class="logo" src={IMGLogo} alt="Logo Out Country" />
+
+			<BtnBlur>
+				<Icon icon={ICONShare} /> Compartilhar
+			</BtnBlur>
+		</div>
+	</Menu>
+
+	<div class="cover-container"></div>
+
+	<div class="title-container content-limit">
+		<h1 class="title">Page Title</h1>
+	</div>
+</header>
+
+<style lang="scss">
+	#header-details {
+		background-color: var(--black);
+
+		.cover-container {
+			width: 100%;
+			height: 336px;
+		}
+
+		.logo {
+			width: 112px;
+			height: auto;
+		}
+
+		.content-limit {
+			display: flex;
+			flex-flow: row nowrap;
+			align-items: center;
+			justify-content: space-between;
+		}
+
+		.title-container {
+            position: relative;
+		}
+
+		h1 {
+            position: absolute;
+			bottom: 32px;
+			left:16px;
+
+			font-size: 48px;
+			font-weight: 900;
+			color: var(--white);
+		}
+	}
+</style>

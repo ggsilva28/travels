@@ -4,7 +4,7 @@ import Menu from "@components/menu.astro";
 import IMGLogo from "@assets/new/logo.png";
 import BtnPlane from "@components/btn-plane.astro";
 import BtnBlur from "@components/btn-blur.astro";
-import SVGFrance from "@assets/new/france.svg?raw";
+import ICONFrance from "@assets/new/france.svg?raw";
 import ICONArrowRight from "@assets/new/icons/arrow-right.svg?raw";
 
 import Icon from "@components/icon.astro";
@@ -16,10 +16,10 @@ import Icon from "@components/icon.astro";
 		<Image class="logo" src={IMGLogo} alt="Logo Out Country" />
 
 		<div class="buttons">
-			<BtnPlane>Destino</BtnPlane>
-			<BtnPlane>Galeria</BtnPlane>
-			<BtnPlane>Onde nos encontrar</BtnPlane>
-			<BtnPlane>Entre em contato</BtnPlane>
+			<BtnPlane anchor="main-destinations">Destino</BtnPlane>
+			<BtnPlane anchor="gallery">Galeria</BtnPlane>
+			<BtnPlane anchor="find-us">Onde nos encontrar</BtnPlane>
+			<BtnPlane anchor="contact">Entre em contato</BtnPlane>
 		</div>
 	</Menu>
 
@@ -28,13 +28,13 @@ import Icon from "@components/icon.astro";
 		<p>Confira nossos destinos</p>
 		<div class="btn-row">
 			<BtnBlur>
-				<Icon icon={SVGFrance} /> França <Icon icon={ICONArrowRight} />
+				<Icon icon={ICONFrance} /> França <Icon icon={ICONArrowRight} />
 			</BtnBlur>
 			<BtnBlur>
-				<Icon icon={SVGFrance} /> Itália <Icon icon={ICONArrowRight} />
+				<Icon icon={ICONFrance} /> Itália <Icon icon={ICONArrowRight} />
 			</BtnBlur>
 			<BtnBlur>
-				<Icon icon={SVGFrance} /> Inglaterra <Icon icon={ICONArrowRight} />
+				<Icon icon={ICONFrance} /> Inglaterra <Icon icon={ICONArrowRight} />
 			</BtnBlur>
 		</div>
 	</div>

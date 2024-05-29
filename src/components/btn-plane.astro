@@ -1,14 +1,20 @@
 ---
-import SVGPlane from "@assets/new/icons/plane.svg?raw";
+import ICONPlane from "@assets/new/icons/plane.svg?raw";
 import Icon from "./icon.astro";
+
+interface Props {
+	anchor: string;
+}
+
+const { anchor } = Astro.props;
 ---
 
-<button class="btn btn-plane">
+<a class="btn btn-plane" href={`#${anchor}`}>
 	<div class="icon-plane">
-		<Icon icon={SVGPlane} /> 
+		<Icon icon={ICONPlane} /> 
 	</div>
 	<slot />
-</button>
+</a>
 
 <style lang="scss">
 	.btn.btn-plane {
