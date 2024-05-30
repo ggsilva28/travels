@@ -1,0 +1,40 @@
+---
+import Contact from "@components/sections/contact.astro";
+import Footer from "@components/sections/footer.astro";
+import Gallery from "@components/sections/gallery.astro";
+import Header from "@components/details/header.astro";
+import Layout from "@layouts/Layout.astro";
+import Content from "@components/details/content.astro";
+
+import data from "@assets/data/countries.json";
+
+import IMGBgFrance from "@assets/new/france/bg-header.png";
+import IMGBgEngland from "@assets/new/england/bg-header.png";
+import IMGBgItaly from "@assets/new/italy/bg-header.png";
+
+export function getStaticPaths() {
+	return [{ params: { country: "france" } }, { params: { country: "england" } }, { params: { country: "italy" } }];
+}
+
+const covers = {
+	france: IMGBgFrance,
+	england: IMGBgEngland,
+	italy: IMGBgItaly
+};
+
+const { country } = Astro.params;
+---
+
+<Layout title={"Out Country | " + data[country].name}>
+	<Header title={data[country].name} cover={covers[country]} />
+	<Content title={data[country].title} text={data[country].text} />
+	<Gallery />
+	<Contact />
+	<Footer />
+</Layout>
+
+<style>
+	html {
+		scroll-behavior: smooth;
+	}
+</style>

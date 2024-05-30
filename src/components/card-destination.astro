@@ -5,12 +5,13 @@ interface Props {
 	imgSrc: ImageMetadata;
 	title: string;
 	description: string;
+	link: string
 }
 
-const { imgSrc, title, description } = Astro.props;
+const { imgSrc, title, description, link } = Astro.props;
 ---
 
-<div class="card-destination">
+<a class="card-destination" href={link}>
 	<Image class="card-destination-cover img-cover" src={imgSrc} alt={title} />
 
 	<div class="card-destination-content">
@@ -25,7 +26,7 @@ const { imgSrc, title, description } = Astro.props;
             <div class="see-details">Ver detalhes</div>
 		</div>
 	</div>
-</div>
+</a>
 
 <style lang="scss">
 	.card-destination {

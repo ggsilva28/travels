@@ -7,12 +7,19 @@ import ICONChevronLeft from "@assets/new/icons/chevron-left.svg?raw";
 import ICONShare from "@assets/new/icons/share.svg?raw";
 
 import Icon from "@components/icon.astro";
+
+interface Props {
+	title: string;
+	cover: ImageMetadata;
+}
+
+const { title, cover } = Astro.props;
 ---
 
 <header id="header-details">
 	<Menu>
 		<div class="content-limit">
-			<BtnBlur>
+			<BtnBlur link="/new">
 				<Icon icon={ICONChevronLeft} /> Voltar
 			</BtnBlur>
 
@@ -24,10 +31,12 @@ import Icon from "@components/icon.astro";
 		</div>
 	</Menu>
 
-	<div class="cover-container"></div>
+	<div class="cover-container">
+		<Image src={cover} alt={title} />
+	</div>
 
 	<div class="title-container content-limit">
-		<h1 class="title">Page Title</h1>
+		<h1 class="title">{title}</h1>
 	</div>
 </header>
 
@@ -36,8 +45,28 @@ import Icon from "@components/icon.astro";
 		background-color: var(--black);
 
 		.cover-container {
+			position: relative;
 			width: 100%;
 			height: 336px;
+
+			img{
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				background-attachment: scroll;
+			}
+
+			&::after{
+				content: "";
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 100%);
+			}
 		}
 
 		.logo {
@@ -53,13 +82,13 @@ import Icon from "@components/icon.astro";
 		}
 
 		.title-container {
-            position: relative;
+			position: relative;
 		}
 
 		h1 {
-            position: absolute;
+			position: absolute;
 			bottom: 32px;
-			left:16px;
+			left: 16px;
 
 			font-size: 48px;
 			font-weight: 900;

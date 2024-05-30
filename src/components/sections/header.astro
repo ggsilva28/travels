@@ -16,7 +16,7 @@ import Icon from "@components/icon.astro";
 		<Image class="logo" src={IMGLogo} alt="Logo Out Country" />
 
 		<div class="buttons">
-			<BtnPlane anchor="main-destinations">Destino</BtnPlane>
+			<BtnPlane anchor="main-destinations" >Destino</BtnPlane>
 			<BtnPlane anchor="gallery">Galeria</BtnPlane>
 			<BtnPlane anchor="find-us">Onde nos encontrar</BtnPlane>
 			<BtnPlane anchor="contact">Entre em contato</BtnPlane>
@@ -27,13 +27,13 @@ import Icon from "@components/icon.astro";
 		<h1>Querendo <br class="mobile-only" /> fazer um <br class="desktop-only" /> intercâmbio?</h1>
 		<p>Confira nossos destinos</p>
 		<div class="btn-row">
-			<BtnBlur>
+			<BtnBlur link="/new/france">
 				<Icon icon={ICONFrance} /> França <Icon icon={ICONArrowRight} />
 			</BtnBlur>
-			<BtnBlur>
+			<BtnBlur link="/new/italy">
 				<Icon icon={ICONFrance} /> Itália <Icon icon={ICONArrowRight} />
 			</BtnBlur>
-			<BtnBlur>
+			<BtnBlur link="/new/england">
 				<Icon icon={ICONFrance} /> Inglaterra <Icon icon={ICONArrowRight} />
 			</BtnBlur>
 		</div>
@@ -77,7 +77,7 @@ import Icon from "@components/icon.astro";
 
 	.logo {
 		width: auto;
-		height: 35px;
+		height: 24px;
 	}
 
 	.buttons {
