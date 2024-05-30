@@ -1,1 +1,48 @@
-Not Found
+---
+import Layout from "@layouts/Layout.astro";
+import MainDestinations from "@components/sections/main-destinations.astro";
+---
+
+<Layout title="Página não encontrada | 404">
+    <div class="error-container">
+		<div class="error">404</div>
+		<p class="error-message">Página não encontrada</p>
+
+		<a href="/" class="btn">Voltar ao início</a>
+    </div>
+
+	<MainDestinations />
+</Layout>
+
+<style>
+	.error-container {
+        display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+
+		height: 70vh;
+
+        background-color: var(--fill);
+		background-image: url("../assets/new/pattern.png");
+		background-repeat: repeat;
+		background-position: center center;
+
+		.error {
+			font-size: 128px;
+			font-weight: 900;
+		}
+
+		.error-message {
+			margin: 8px 0 32px;
+			font-weight: bold;
+			font-size: 16px;
+		}
+
+		.btn {
+			background-color: var(--primary-color);
+			color: var(--white);
+			padding: 12px 16px;
+		}
+	}
+</style>
