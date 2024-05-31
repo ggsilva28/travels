@@ -5,22 +5,30 @@ import IMGLogo from "@assets/new/logo.png";
 import BtnPlane from "@components/btn-plane.astro";
 import BtnBlur from "@components/btn-blur.astro";
 import ICONFrance from "@assets/new/france.svg?raw";
+import ICONEngland from "@assets/new/england.svg?raw";
+import ICONItaly from "@assets/new/italy.svg?raw";
 import ICONArrowRight from "@assets/new/icons/arrow-right.svg?raw";
 
 import Icon from "@components/icon.astro";
-
 ---
 
 <header id="header">
-	<Menu>
-		<Image class="logo" src={IMGLogo} alt="Logo Out Country" />
+	<Menu hasHamb={true}>
+		<a href="#header" slot="logo">
+			<Image class="logo" src={IMGLogo} alt="Logo Out Country" />
+		</a>
 
-		<div class="buttons">
-			<BtnPlane anchor="main-destinations" >Destino</BtnPlane>
+		<div class="buttons" slot="desktop">
+			<BtnPlane anchor="main-destinations">Destino</BtnPlane>
 			<BtnPlane anchor="gallery">Galeria</BtnPlane>
 			<BtnPlane anchor="find-us">Onde nos encontrar</BtnPlane>
 			<BtnPlane anchor="contact">Entre em contato</BtnPlane>
 		</div>
+
+		<a class="menu-item" slot="mobile" href="#main-destinations">Destino</a>
+		<a class="menu-item" slot="mobile" href="#gallery">Galeria</a>
+		<a class="menu-item" slot="mobile" href="#find-us">Onde nos encontrar</a>
+		<a class="menu-item" slot="mobile" href="#contact">Entre em contato</a>
 	</Menu>
 
 	<div class="content-limit">
@@ -31,10 +39,10 @@ import Icon from "@components/icon.astro";
 				<Icon icon={ICONFrance} /> França <Icon icon={ICONArrowRight} />
 			</BtnBlur>
 			<BtnBlur link="/new/italy">
-				<Icon icon={ICONFrance} /> Itália <Icon icon={ICONArrowRight} />
+				<Icon icon={ICONItaly} /> Itália <Icon icon={ICONArrowRight} />
 			</BtnBlur>
 			<BtnBlur link="/new/england">
-				<Icon icon={ICONFrance} /> Inglaterra <Icon icon={ICONArrowRight} />
+				<Icon icon={ICONEngland} /> Inglaterra <Icon icon={ICONArrowRight} />
 			</BtnBlur>
 		</div>
 	</div>
@@ -84,5 +92,40 @@ import Icon from "@components/icon.astro";
 		display: flex;
 		flex-flow: row nowrap;
 		gap: 12px;
+	}
+
+	.menu-item {
+		font-size: 16px;
+		font-weight: 900;
+		color: var(--white);
+		transition: 300ms;
+		text-decoration: none;
+
+		padding: 8px 16px;
+
+		&:hover {
+			color: var(--primary-color);
+		}
+	}
+
+	@media screen and (max-width: 1024px) {
+		#header {
+			h1 {
+				font-size: 40px;
+			}
+
+			.btn-row {
+				flex-direction: column;
+			}
+		}
+	}
+
+	@keyframes fade-in {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
 	}
 </style>

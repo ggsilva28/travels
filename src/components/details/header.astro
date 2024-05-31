@@ -18,7 +18,7 @@ const { title, cover } = Astro.props;
 
 <header id="header-details">
 	<Menu>
-		<div class="content-limit">
+		<div class="content-limit" slot="desktop">
 			<BtnBlur link="/new">
 				<Icon icon={ICONChevronLeft} /> Voltar
 			</BtnBlur>
@@ -29,6 +29,14 @@ const { title, cover } = Astro.props;
 				<Icon icon={ICONShare} /> Compartilhar
 			</BtnBlur>
 		</div>
+
+		<BtnBlur cssClass="mobile-only" link="/new">
+			<Icon icon={ICONChevronLeft} /> Voltar
+		</BtnBlur>
+
+		<BtnBlur cssClass="mobile-only">
+			<Icon icon={ICONShare} />
+		</BtnBlur>
 	</Menu>
 
 	<div class="cover-container">
@@ -49,14 +57,14 @@ const { title, cover } = Astro.props;
 			width: 100%;
 			height: 336px;
 
-			img{
+			img {
 				width: 100%;
 				height: 100%;
 				object-fit: cover;
 				background-attachment: scroll;
 			}
 
-			&::after{
+			&::after {
 				content: "";
 				top: 0;
 				bottom: 0;

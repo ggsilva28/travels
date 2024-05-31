@@ -1,5 +1,7 @@
 ---
 import IMGTravels from "@assets/new/travels.png";
+import IMGTravelsMobile from "@assets/new/travels-m.png";
+
 import ICONWhatsapp from "@assets/new/icons/whatsapp.svg?raw";
 import { Image } from "astro:assets";
 import Icon from "@components/icon.astro";
@@ -7,7 +9,8 @@ import Icon from "@components/icon.astro";
 
 <section id="contact">
 	<div class="content-limit">
-		<Image src={IMGTravels} alt="Viajante andando pela cidade e imagem de veiculo viajando pela estrada" />
+		<Image class="mobile-only" src={IMGTravelsMobile} alt="Viajante andando pela cidade e imagem de veiculo viajando pela estrada" />
+		<Image class="desktop-only" src={IMGTravels} alt="Viajante andando pela cidade e imagem de veiculo viajando pela estrada" />
 
 		<div class="info">
 			<h3>
@@ -40,6 +43,11 @@ import Icon from "@components/icon.astro";
 			justify-content: center;
 			gap: 32px;
 
+			img {
+				max-width: 100%;
+				height: auto;
+			}
+
 			h3 {
 				font-size: 40px;
 				font-weight: 500;
@@ -65,12 +73,24 @@ import Icon from "@components/icon.astro";
 				margin: 24px 0;
 			}
 
-            .btn-contact{
-                background-color: var(--white);
-                border: 1px solid var(--border);
-                font-weight: 700;
-                color: var(--green);
-            }
+			.btn-contact {
+				background-color: var(--white);
+				border: 1px solid var(--border);
+				font-weight: 700;
+				color: var(--green);
+			}
+		}
+	}
+
+	@media screen and (max-width: 1024px) {
+		#contact {
+			background-color: var(--fill);
+			padding: 64px 0px 48px;
+
+			.content-limit {
+				flex-direction: column-reverse;
+				gap: 8px
+			}
 		}
 	}
 </style>

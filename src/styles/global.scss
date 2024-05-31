@@ -43,19 +43,26 @@
 }
 
 .desktop-only {
-	display: inherit;
+	display: inherit !important;
 }
 
 .mobile-only {
-	display: none;
+	display: none !important;
 }
 
 @media screen and (max-width: 1024px) {
 	.desktop-only {
-		display: none;
+		display: none !important;
 	}
 
 	.mobile-only {
-		display: inherit;
+		display: inherit !important;
+	}
+
+	.content-limit {
+		width: calc( 100% - 32px);
+		max-width: 1024px;
+		margin: 0 auto;
+		padding: 0px 16px;
 	}
 }

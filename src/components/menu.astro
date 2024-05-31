@@ -1,8 +1,38 @@
+---
+interface Props {
+	hasHamb?: boolean;
+}
+
+const { hasHamb } = Astro.props;
+---
+
 <nav class="menu-container">
+	<slot name="logo" />
+	<div class="desktop-only">
+		<slot name="desktop" />
+	</div>
 	<slot />
+	{
+		hasHamb && (
+			<div class="hamburger">
+				<div class="bar" />
+				<div class="bar" />
+				<div class="bar" />
+			</div>
+		)
+	}
 </nav>
 
+<div class="menu-container-mobile blurry">
+	<slot name="mobile" />
+</div>
+
 <style lang="scss">
+	.blurry {
+		backdrop-filter: blur(4px);
+		background: rgba(0, 0, 0, 0.4);
+	}
+
 	.menu-container {
 		--padding-x: 32px;
 
@@ -21,9 +51,70 @@
 
 		transition: 300ms;
 
-		&.blurry {
-			backdrop-filter: blur(4px);
-			background: rgba(0, 0, 0, 0.4);
+		.hamburger {
+			display: none;
+		}
+
+		&.menu-mobile-open .hamburger {
+			.bar:nth-child(1) {
+				transform: rotate(45deg);
+				transform-origin: 10% -45%;
+			}
+
+			.bar:nth-child(2) {
+				opacity: 0;
+			}
+
+			.bar:nth-child(3) {
+				transform: rotate(-45deg);
+				transform-origin: 0% 100%;
+			}
+		}
+	}
+
+	.menu-container-mobile {
+		position: fixed;
+		top: -100%;
+		left: 0;
+		z-index: 2;
+
+		width: 100%;
+		padding: 74px 8px 8px 8px;
+		opacity: 0;
+
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+
+		transition: 300ms;
+
+		&.open {
+			top: 0;
+			opacity: 1;
+		}
+	}
+
+	@media screen and (max-width: 1024px) {
+		.menu-container {
+			--padding-x: 16px;
+			padding: 12px var(--padding-x);
+
+			.hamburger {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				gap: 8px;
+
+				padding: 8px;
+
+				.bar {
+					width: 32px;
+					height: 2px;
+					background-color: var(--white);
+					border: 4px;
+					transition: 300ms;
+				}
+			}
 		}
 	}
 </style>
@@ -31,5 +122,19 @@
 <script>
 	import * as menu from "./menu.ts";
 
-	menu.scrollBlur();
+	const startMenu = () => {
+		menu.scrollBlur();
+
+		const btnHamb = document.querySelector(".hamburger");
+
+		btnHamb.addEventListener("click", () => {
+			menu.toggleMobile();
+		});
+	};
+
+	document.addEventListener("astro:after-swap", () => {
+		startMenu();
+	});
+
+	startMenu();
 </script>

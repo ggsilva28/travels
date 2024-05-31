@@ -5,7 +5,7 @@ interface Props {
 	imgSrc: ImageMetadata;
 	title: string;
 	description: string;
-	link: string
+	link: string;
 }
 
 const { imgSrc, title, description, link } = Astro.props;
@@ -23,7 +23,7 @@ const { imgSrc, title, description, link } = Astro.props;
 		<div class="card-destination-footer">
 			<div class="title">{title}</div>
 			<div class="description">{description}</div>
-            <div class="see-details">Ver detalhes</div>
+			<div class="see-details">Ver detalhes</div>
 		</div>
 	</div>
 </a>
@@ -39,17 +39,15 @@ const { imgSrc, title, description, link } = Astro.props;
 
 		transition: 300ms;
 
-		
-
 		&:hover {
 			box-shadow: rgb(38, 57, 77) 0px 20px 30px -5px;
 
 			.card-destination-content .card-destination-footer {
 				margin-bottom: 16px;
 
-                .see-details{
-                    transform: translateY(12px)
-                }
+				.see-details {
+					transform: translateY(12px);
+				}
 			}
 		}
 
@@ -83,12 +81,18 @@ const { imgSrc, title, description, link } = Astro.props;
 					line-height: 140%;
 				}
 
-                .see-details{
-                    transform: translateY(32px);
-                    transition: 300ms;
-                    font-size: 14px;
-                }
+				.see-details {
+					transform: translateY(32px);
+					transition: 300ms;
+					font-size: 14px;
+				}
 			}
+		}
+	}
+
+	@media screen and (max-width: 1024px) {
+		.card-destination {
+			height: 90vw;
 		}
 	}
 </style>

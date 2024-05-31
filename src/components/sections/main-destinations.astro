@@ -8,12 +8,12 @@ import IMGEnglandCover from "@assets/new/england/01.png";
 
 <section id="main-destinations">
 	<div class="content-limit">
-		<h3>Princiapais destinos</h3>
+		<h3>Conheça nossos <strong>princiapais destinos</strong></h3>
 
 		<div class="destinations-list">
 			<CardDestination imgSrc={IMGFranceCover} title="França" description="Torre Eiffel, Château de Chenonceau, Museu D’Orsay, Arco do Triunfo..." link="new/france" />
-			<CardDestination imgSrc={IMGItalyCover} title="Itália" description="Pisa, Siena, Milão, Florença, Verona, Taormina, Roma, Bolonha..."  link="new/italy"/>
-			<CardDestination imgSrc={IMGEnglandCover} title="Inglaterra" description="Castelo de Windsor, Stonehenge, Termas Romanas de Bath..."  link="new/england"/>
+			<CardDestination imgSrc={IMGItalyCover} title="Itália" description="Pisa, Siena, Milão, Florença, Verona, Taormina, Roma, Bolonha..." link="new/italy" />
+			<CardDestination imgSrc={IMGEnglandCover} title="Inglaterra" description="Castelo de Windsor, Stonehenge, Termas Romanas de Bath..." link="new/england" />
 		</div>
 	</div>
 </section>
@@ -29,17 +29,39 @@ import IMGEnglandCover from "@assets/new/england/01.png";
 		background-position: center center;
 
 		h3 {
+			margin-bottom: 48px;
 			font-size: 48px;
-			font-weight: 900;
-			color: var(--primary-color);
-            margin-bottom: 48px;
+			color: var(--text-dark);
+			font-weight: 500;
+
+			strong {
+				display: block;
+				font-weight: 900;
+				color: var(--primary-color);
+			}
 		}
 
+		.destinations-list {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			grid-gap: 48px;
+		}
+	}
 
-        .destinations-list{
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-gap: 48px;
-        }
+	@media screen and (max-width: 1024px) {
+		#main-destinations {
+			padding: 32px 0px 48px;
+			background-position: center left;
+
+			h3{
+				font-size: 32px;
+			}
+			.destinations-list {
+				display: flex;
+				flex-direction: column;
+			}
+
+		
+		}
 	}
 </style>

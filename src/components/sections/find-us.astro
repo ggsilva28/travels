@@ -81,9 +81,9 @@ import Icon from "@components/icon.astro";
 				margin: 16px 0 64px;
 				color: var(--text-dark);
 
-                strong {
-                    font-weight: 800;
-                }
+				strong {
+					font-weight: 800;
+				}
 			}
 		}
 
@@ -107,6 +107,22 @@ import Icon from "@components/icon.astro";
 				line-height: 150%;
 				color: var(--white);
 				margin-top: 16px;
+			}
+		}
+	}
+
+	@media screen and (max-width: 1024px) {
+		#find-us {
+			display: grid;
+			grid-template-areas: "adress" "map" "about-us";
+			grid-template-columns: 1fr;
+
+			.map {
+				height: 90vw;
+			}
+
+			.address .address-line{
+				margin-bottom: 0;
 			}
 		}
 	}
