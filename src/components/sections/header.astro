@@ -1,13 +1,14 @@
 ---
 import { Image } from "astro:assets";
 import Menu from "@components/menu.astro";
-import IMGLogo from "@assets/new/logo.png";
+import IMGLogo from "@assets/new/logo.webp";
 import BtnPlane from "@components/btn-plane.astro";
 import BtnBlur from "@components/btn-blur.astro";
 import ICONFrance from "@assets/new/france.svg?raw";
 import ICONEngland from "@assets/new/england.svg?raw";
 import ICONItaly from "@assets/new/italy.svg?raw";
 import ICONArrowRight from "@assets/new/icons/arrow-right.svg?raw";
+import IMGBGHeader from "@assets/new/bg-header.webp";
 
 import Icon from "@components/icon.astro";
 ---
@@ -15,7 +16,7 @@ import Icon from "@components/icon.astro";
 <header id="header">
 	<Menu hasHamb={true}>
 		<a href="#header" slot="logo">
-			<Image class="logo" src={IMGLogo} alt="Logo Out Country" />
+			<Image class="logo" src={IMGLogo} alt="Logo Travel" />
 		</a>
 
 		<div class="buttons" slot="desktop">
@@ -31,19 +32,25 @@ import Icon from "@components/icon.astro";
 		<a class="menu-item" slot="mobile" href="#contact">Entre em contato</a>
 	</Menu>
 
-	<div class="content-limit">
-		<h1>Querendo <br class="mobile-only" /> fazer um <br class="desktop-only" /> intercâmbio?</h1>
-		<p>Confira nossos destinos</p>
-		<div class="btn-row">
-			<BtnBlur link="/new/france">
-				<Icon icon={ICONFrance} /> França <Icon icon={ICONArrowRight} />
-			</BtnBlur>
-			<BtnBlur link="/new/italy">
-				<Icon icon={ICONItaly} /> Itália <Icon icon={ICONArrowRight} />
-			</BtnBlur>
-			<BtnBlur link="/new/england">
-				<Icon icon={ICONEngland} /> Inglaterra <Icon icon={ICONArrowRight} />
-			</BtnBlur>
+	<div class="header-img">
+		<Image loading="lazy" class="img-cover" src={IMGBGHeader} alt="Foto de Arco do Triunfo na França" />
+	</div>
+
+	<div class="header-content">
+		<div class="content-limit">
+			<h1>Querendo <br class="mobile-only" /> fazer um <br class="desktop-only" /> intercâmbio?</h1>
+			<p>Confira nossos destinos</p>
+			<div class="btn-row">
+				<BtnBlur link="/new/france" ariaLabel="Ir para a França">
+					<Icon icon={ICONFrance} /> França <Icon icon={ICONArrowRight} />
+				</BtnBlur>
+				<BtnBlur link="/new/italy" ariaLabel="Ir para a Itália">
+					<Icon icon={ICONItaly} /> Itália <Icon icon={ICONArrowRight} />
+				</BtnBlur>
+				<BtnBlur link="/new/england" ariaLabel="Ir para a Inglaterra">
+					<Icon icon={ICONEngland} /> Inglaterra <Icon icon={ICONArrowRight} />
+				</BtnBlur>
+			</div>
 		</div>
 	</div>
 </header>
@@ -51,15 +58,14 @@ import Icon from "@components/icon.astro";
 <style lang="scss">
 	#header {
 		position: relative;
-		height: 90vh;
-
-		background-image: url("../../assets/new/bg-header.png");
-		background-size: cover;
-		background-position: center center;
 
 		display: flex;
 		align-items: center;
 		justify-content: center;
+
+		.header-img {
+			height: 600px;
+		}
 
 		h1 {
 			font-size: 48px;
@@ -80,6 +86,19 @@ import Icon from "@components/icon.astro";
 			flex-flow: row nowrap;
 			gap: 12px;
 			margin-top: 12px;
+		}
+
+		.header-content {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			display: flex;
+			flex-flow: column;
+			justify-content: center;
+			align-items: center;
+			gap: 16px;
 		}
 	}
 

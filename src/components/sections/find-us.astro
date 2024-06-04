@@ -4,14 +4,14 @@ import Icon from "@components/icon.astro";
 ---
 
 <section id="find-us">
-	<div class="map">
-		<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1475.8250088825628!2d-0.1465566121053569!3d51.53097438880616!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-BR!2sbr!4v1716849533730!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-	</div>
+	<a class="map" href="https://www.google.com/maps/@51.536442,-0.153124,15z?hl=pt-BR&entry=ttu">
+		
+	</a>
 	<div class="address">
-		<h5>
+		<h3>
 			Venha conhecer onde <br class="desktop-only" />
 			<strong>seus <span> sonhos começam</span></strong>
-		</h5>
+		</h3>
 		<div class="address-line">
 			<Icon icon={ICONMapPin} />
 			<p>
@@ -59,7 +59,7 @@ import Icon from "@components/icon.astro";
 			padding: 32px;
 			background-color: var(--fill);
 
-			h5 {
+			h3 {
 				font-size: 32px;
 				color: var(--text-dark);
 
@@ -91,7 +91,7 @@ import Icon from "@components/icon.astro";
 			grid-area: about-us;
 
 			padding: 32px 128px 256px 32px;
-			background-image: url("../../assets/new/bg-about-us.png");
+			background-image: url("../../assets/new/bg-about-us.webp");
 			background-repeat: no-repeat;
 			background-size: cover;
 			background-position: center bottom;

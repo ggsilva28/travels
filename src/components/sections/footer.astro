@@ -1,5 +1,5 @@
 ---
-import IMGLogo from "@assets/new/logo.png";
+import IMGLogo from "@assets/new/logo.webp";
 
 import ICONInstagram from "@assets/new/icons/red-instagram.svg?raw";
 import ICONFacebook from "@assets/new/icons/red-facebook.svg?raw";
@@ -13,23 +13,28 @@ import Icon from "@components/icon.astro";
 const socialMidias = [
 	{
 		link: "https://www.instagram.com/",
-		icon: ICONInstagram
+		icon: ICONInstagram,
+		name: "Instagram"
 	},
 	{
 		link: "https://www.pinterest.com/",
-		icon: ICONPinterest
+		icon: ICONPinterest,
+		name: "Pinterest"
 	},
 	{
 		link: "https://www.youtube.com/",
-		icon: ICONYoutube
+		icon: ICONYoutube,
+		name: "Youtube"
 	},
 	{
 		link: "https://www.facebook.com/",
-		icon: ICONFacebook
+		icon: ICONFacebook,
+		name: "Facebook"
 	},
 	{
 		link: "https://web.whatsapp.com/",
-		icon: ICONWhatsapp
+		icon: ICONWhatsapp,
+		name: "Whatsapp"
 	}
 ];
 ---
@@ -37,7 +42,7 @@ const socialMidias = [
 <footer>
 	<div class="content-limit">
 		<div class="footer-menu">
-			<Image src={IMGLogo} alt="Logo Out Country" />
+			<Image src={IMGLogo} alt="Logo Travel" />
 
 			<a class="menu-item" href="#main-destinations">
 				Destinos
@@ -61,8 +66,8 @@ const socialMidias = [
 			</div>
 			<div class="icons">
 				{
-					socialMidias.map(({ link, icon }) => (
-						<a href={link} target="_blank" rel="noreferrer">
+					socialMidias.map(({ link, icon, name }) => (
+						<a href={link} target="_blank" rel="noreferrer" aria-label={name}>
 							<Icon icon={icon} />
 						</a>
 					))
@@ -77,7 +82,7 @@ const socialMidias = [
 		--divider-width: 70%;
 
 		padding: 48px 0px;
-		background-image: url("../../assets/new//bg-footer.png");
+		background-image: url("../../assets/new//bg-footer.webp");
 		background-size: cover;
 		background-position: center center;
 		background-repeat: no-repeat;
@@ -175,7 +180,7 @@ const socialMidias = [
 				font-weight: 700;
 			}
 
-			.icons{
+			.icons {
 				display: flex;
 				flex-flow: row nowrap;
 				align-items: center;
@@ -186,8 +191,8 @@ const socialMidias = [
 		}
 	}
 
-	@media screen and (max-width: 1024px){
-		footer{
+	@media screen and (max-width: 1024px) {
+		footer {
 			.content-limit {
 				flex-flow: column nowrap;
 				align-items: flex-start;
@@ -197,7 +202,7 @@ const socialMidias = [
 				align-items: flex-start;
 				margin-top: 32px;
 
-				.icons{
+				.icons {
 					margin-top: 8px;
 				}
 			}

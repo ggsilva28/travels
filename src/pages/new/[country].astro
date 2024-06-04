@@ -25,7 +25,7 @@ const covers = {
 const { country } = Astro.params;
 ---
 
-<Layout title={"Out Country | " + data[country].name}>
+<Layout title={"Travel | " + data[country].name}>
 	<Header title={data[country].name} cover={covers[country]} />
 	<Content title={data[country].title} text={data[country].text} />
 	<Gallery />

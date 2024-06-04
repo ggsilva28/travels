@@ -2,14 +2,15 @@
 interface Props {
 	link?: string;
 	cssClass?: string;
+	ariaLabel?: string;
 }
 
-const { link, cssClass } = Astro.props;
+const { link, cssClass, ariaLabel } = Astro.props;
 ---
 
 {
 	link ? (
-		<a btn-plane class={'btn btn-blur ' + cssClass} href={link}>
+		<a btn-plane class={'btn btn-blur ' + cssClass} href={link} aria-label={ariaLabel}>
 			<slot />
 		</a>
 	) : (
