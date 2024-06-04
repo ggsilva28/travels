@@ -11,6 +11,8 @@ interface Props {
 }
 
 const { title } = Astro.props;
+
+const GOOGLE_API_KEY = import.meta.env.GOOGLE_API_KEY;
 ---
 
 <!doctype html>
@@ -47,6 +49,10 @@ const { title } = Astro.props;
 		<meta property="twitter:title" content="Travel - Querendo fazer um	intercâmbio?" />
 		<meta property="twitter:description" content="A Out Travel Intercâmbios é uma empresa multinacional com 10 anos de experiência no mercado. Nosso objetivo é ajudar jovens e adultos a conhecer o mundo de forma mais fácil e simples, oferecendo planos de viagem e serviços personalizados para cada cliente." />
 		<meta property="twitter:image" content="social-image.webp" />
+
+		<!-- The callback parameter is required, so we use console.debug as a noop -->
+		<script  is:inline async src={`https://maps.googleapis.com/maps/api/js?key=`+ GOOGLE_API_KEY +`&callback=console.debug&libraries=maps,marker&v=beta`}></script>
+
 	</head>
 	<body>
 		<slot />
