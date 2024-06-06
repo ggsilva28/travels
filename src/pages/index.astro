@@ -1,7 +1,24 @@
 ---
 import Layout from '@layouts/Layout.astro';
+
+import ICONGithub from '@assets/new/icons/github.svg?raw';
+import ICONLinkedin from '@assets/new/icons/linkedin-in.svg?raw';
+import ICONGlobe from '@assets/new/icons/globe.svg?raw';
+
+import Icon from '@components/icon.astro';
+
 ---
 
 <Layout title="Escolha seu caminho">
-	
+	<div class="about-wrapper">
+        <div class="picture"></div>
+        <div class="comment-wrapper">
+            <div class="comment"></div>
+            <div class="social-links">
+                <a class="btn"> <Icon icon={ICONGithub} />  </a>
+                <a class="btn"> <Icon icon={ICONLinkedin} />  </a>
+                <a class="btn"> <Icon icon={ICONGlobe} />  </a>
+            </div>
+        </div>
+    </div>
 </Layout>
