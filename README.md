@@ -1,7 +1,7 @@
 
 # Travels Website
 
-In 2017, I learned HTML/CSS and built my first website. This new version is a complete overhaul, powered by Astro and featuring a fresh design, although I kept the original structure to provide a sense of continuity.
+In 2018, I learned HTML/CSS and built my first website. This new version is a complete overhaul, powered by Astro and featuring a fresh design, although I kept the original structure to provide a sense of continuity.
 
 # Technologies
 
