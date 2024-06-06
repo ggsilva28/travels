@@ -1,24 +1,151 @@
 ---
-import Layout from '@layouts/Layout.astro';
+import Layout from "@layouts/Layout.astro";
 
-import ICONGithub from '@assets/new/icons/github.svg?raw';
-import ICONLinkedin from '@assets/new/icons/linkedin-in.svg?raw';
-import ICONGlobe from '@assets/new/icons/globe.svg?raw';
+import ICONGithub from "@assets/new/icons/github.svg?raw";
+import ICONLinkedin from "@assets/new/icons/linkedin-in.svg?raw";
+import ICONGlobe from "@assets/new/icons/globe.svg?raw";
+import IMGProfile from "@assets/new/profile.webp";
 
-import Icon from '@components/icon.astro';
-
+import Icon from "@components/icon.astro";
+import { Image } from "astro:assets";
+import CardPages from "@components/card-pages.astro";
 ---
 
 <Layout title="Escolha seu caminho">
-	<div class="about-wrapper">
-        <div class="picture"></div>
-        <div class="comment-wrapper">
-            <div class="comment"></div>
-            <div class="social-links">
-                <a class="btn"> <Icon icon={ICONGithub} />  </a>
-                <a class="btn"> <Icon icon={ICONLinkedin} />  </a>
-                <a class="btn"> <Icon icon={ICONGlobe} />  </a>
-            </div>
+	<div class="content-limit">
+		<div class="about-wrapper">
+			<div class="picture">
+				<Image class="img-cover" src={IMGProfile} alt="Foto de Gabriel Gonçalves" />
+			</div>
+			<div class="comment-wrapper">
+				<div class="comment">
+					Este projeto foi criado para revisitar meu primeiro site criado em <strong>2017</strong>, desenvolvendo do zero <strong> uma nova versão em 2024</strong> porém ainda se baseando no conteúdo original e tentando se manter fiel aquilo que imaginei no início e tentar a partir desse conteúdo sem base algo sólido e atual.
+				</div>
+				<div class="social-links">
+					<a class="btn" href="https://github.com/ggsilva28" target="_blank"> <Icon icon={ICONGithub} /> </a>
+					<a class="btn" href="https://www.linkedin.com/in/ggsilva28/" target="_blank"> <Icon icon={ICONLinkedin} /> </a>
+					<a class="btn" href="https://www.ggsilva.website/" target="_blank"> <Icon icon={ICONGlobe} /> </a>
+				</div>
+			</div>
+		</div>
+
+        <div class="card-wrapper">
+            <CardPages year="2017" title="O projeto que começou tudo" link="old" ></CardPages>
+            <CardPages year="2024" title="A nova versão, inspirada no começado"  link="new" ></CardPages>
         </div>
-    </div>
+	</div>
 </Layout>
+
+<style lang="scss">
+	body {
+		background-color: var(--fill);
+		height: 100dvh;
+
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+
+    .content-limit{
+        max-width: 660px;
+    }
+
+	.about-wrapper {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 32px;
+
+		.btn {
+			display: block;
+			border: 1px solid var(--border);
+            background-color: var(--white);
+
+			width: 36px;
+			height: 36px;
+			padding: 0;
+
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+        .picture{
+            width: 80px;
+            height: 80px;
+            border-radius: 80px;
+            overflow: hidden;
+        }
+
+        .social-links{
+            display: flex;
+            flex-flow: row nowrap;
+            gap: 8px;
+        }
+
+        .comment-wrapper{
+            flex: 1;
+
+            .comment{
+                padding: 16px;
+                background-color: var(--white);
+                border: 1px solid var(--border);
+                border-radius: 8px;
+
+                font-size: 16px;
+                line-height: 150%;
+                color:var(--text-dark);
+
+                margin-bottom: 8px;
+
+                strong{
+                    font-weight: 800;
+                }
+            }
+        }
+	}
+
+    .card-wrapper{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        margin-top: 32px;
+        position: relative;
+    }
+
+    @media (max-width: 1024px) {
+        body{
+            align-items: flex-start;
+            height: auto;
+        }
+
+        .about-wrapper{
+            position: relative;
+
+            flex-direction: column;
+            margin-top: 48px;
+            padding-top: 32px;
+
+            .picture{
+                position: absolute;
+                top: -24px;
+                border-radius: 16px;
+                left: 16px;
+                border: 1px solid var(--border);
+            }
+
+            .comment-wrapper .comment{
+                padding-top: 32px;
+            }
+        }
+
+        .card-wrapper{
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+    }
+</style>

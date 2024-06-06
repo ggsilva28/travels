@@ -1,0 +1,105 @@
+---
+import ICONArrowRight from "@assets/new/icons/arrow-right-dark.svg?raw";
+import Icon from "@components/icon.astro";
+
+interface Props {
+	year: string;
+	title: string;
+	link: string;
+}
+
+const { year, title, link } = Astro.props;
+---
+
+<a class="card" href={link}>
+	<div class="card-year">{year}</div>
+	<div class="card-divider"></div>
+	<div class="card-title">{title}</div>
+	<div class="card-cta">conhecer <div class="icon"><Icon icon={ICONArrowRight} /></div></div>
+</a>
+
+<style lang="scss">
+	.card {
+		position: relative;
+		cursor: pointer;
+
+		padding: 16px;
+		border: 1px solid var(--border);
+		border-radius: 8px;
+		text-decoration: none;
+		background-color: var(--white);
+		overflow: hidden;
+
+		transition: 300ms;
+
+		&:after {
+			content: "";
+			position: absolute;
+			bottom: -8px;
+			right: -8px;
+			width: 32px;
+			height: 32px;
+			background-color: var(--primary-color);
+			border-radius: 100%;
+			z-index: 0;
+			transition: 400ms;
+		}
+
+		.card-year,.card-divider,.card-title, .card-cta {
+			z-index: 1;
+			position: relative;
+			transition: 300ms;
+		}
+
+		.card-year {
+			font-size: 16px;
+			font-weight: 900;
+			color: var(--primary-color);
+		}
+
+		.card-divider {
+			width: 70px;
+			height: 1px;
+			background-color: var(--border);
+			margin-top: 12px;
+			margin-bottom: 8px;
+		}
+
+		.card-title {
+			font-size: 24px;
+			font-weight: 900;
+			color: var(--text-dark);
+			margin-bottom: 124px;
+		}
+
+		.card-cta {
+			display: flex;
+			flex-flow: row nowrap;
+			align-items: center;
+			gap: 8px;
+
+			font-size: 16px;
+			font-weight: 900;
+			color: var(--text-dark);
+		}
+
+		&:hover {
+			&:after {
+				width: 200%;
+				height: 200%;
+				bottom: -40px;
+				right: -40px;
+			}
+
+			.card-year,
+			.card-cta,
+			.card-title {
+				color: var(--white);
+			}
+
+			.card-cta .icon{
+				filter: brightness(10);
+			}
+		}
+	}
+</style>
