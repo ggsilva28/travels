@@ -1,0 +1,114 @@
+---
+import ICONChevronLeft from "@assets/new/icons/chevron-left.svg?raw";
+
+import Icon from "./icon.astro";
+
+interface Props {
+	current: "old" | "new" | "start";
+}
+
+const { current } = Astro.props;
+---
+
+<div class="navigation-float-wrapper" class:list={{ old: current === "old" }}>
+	<a href="/" class="nav-btn" class:list={{ active: current === "start" }}>Incio</a>
+	<a href="/old" class="nav-btn" class:list={{ active: current === "old" }}>2017</a>
+	<a href="/new" class="nav-btn" class:list={{ active: current === "new" }}>2024</a>
+	<div class="toggle"><Icon icon={ICONChevronLeft} /></div>
+</div>
+
+<style lang="scss">
+	.navigation-float-wrapper, .nav-btn, .toggle {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		font-size: 100%;
+		font: inherit;
+		vertical-align: baseline;
+		font-family: "Arial";
+        box-sizing: border-box;
+	}
+
+	.navigation-float-wrapper {
+		position: fixed;
+		left: 16px;
+		bottom: 16px;
+		width: 270px;
+
+		background-color: rgba(255, 255, 255, 0.2);
+		border: 1px solid rgba(255, 255, 255, 0.5);
+		backdrop-filter: blur(4px);
+
+		border-radius: 8px;
+		box-shadow: 0px 8px 12px 0px rgba(0, 0, 0, 0.2);
+		padding: 8px;
+
+		display: flex;
+		flex-flow: row nowrap;
+		align-items: center;
+		justify-content: center;
+		gap: 8px;
+
+		z-index: 7;
+
+		transition: 300ms;
+
+		a.nav-btn {
+			display: block;
+
+			padding: 12px 16px;
+
+			border: none;
+			border-radius: 8px;
+			color: var(--text-dark);
+			background-color: var(--white);
+
+			font-size: 16px;
+			font-weight: 700;
+			text-decoration: none;
+			line-height: 100%;
+
+			transition: 300ms;
+
+			&.active {
+				color: var(--white);
+				background-color: var(--primary-color);
+			}
+		}
+
+		.toggle {
+			cursor: pointer;
+			filter: brightness(0.6);
+
+			padding: 8px;
+		}
+
+		&.closed {
+			justify-content: flex-end;
+			width: 42px;
+			overflow: hidden;
+
+			.toggle {
+				transform: rotate(180deg);
+			}        
+		}
+	}
+</style>
+
+<script>
+	const toggle = () => {
+		const btns = document.querySelector(".toggle");
+
+		btns.addEventListener("click", () => {
+			const wrapper = document.querySelector(".navigation-float-wrapper");
+			wrapper.classList.toggle("closed");
+		});
+	};
+
+	document.addEventListener("astro:after-swap", () => {
+		toggle();
+	});
+
+    toggle();
+
+</script>

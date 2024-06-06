@@ -1,4 +1,8 @@
+---
+import "@styles/variables.scss";
 
+import NavegationFloat from "@components/navegation-float.astro"
+---
 <!doctype html>
 <html lang="en">
 	<head>
@@ -7,9 +11,13 @@
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
+
+
 		<title>Out Travel</title>
 	</head>
 	<body>
+		<NavegationFloat current="old" />
+
 		<slot />
 	</body>
 </html>

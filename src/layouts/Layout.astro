@@ -5,12 +5,14 @@ import "@styles/global.scss";
 import "@styles/reset.scss";
 import "@styles/variables.scss";
 
+import NavegationFloat from "@components/navegation-float.astro";
 
 interface Props {
 	title: string;
+	current?: "old" | "new" | "start";
 }
 
-const { title } = Astro.props;
+const { title, current } = Astro.props;
 
 const GOOGLE_API_KEY = import.meta.env.GOOGLE_API_KEY;
 ---
@@ -55,6 +57,8 @@ const GOOGLE_API_KEY = import.meta.env.GOOGLE_API_KEY;
 
 	</head>
 	<body>
+		<NavegationFloat current={current || 'new'} />
+
 		<slot />
 		<style is:global>
 			:root {
