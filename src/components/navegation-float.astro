@@ -10,7 +10,7 @@ interface Props {
 const { current } = Astro.props;
 ---
 
-<div class="navigation-float-wrapper" class:list={{ old: current === "old" }}>
+<div class="navigation-float-wrapper" class:list={{ olxd: current === "old" }}>
 	<a href="/" class="nav-btn" class:list={{ active: current === "start" }}>Incio</a>
 	<a href="/old" class="nav-btn" class:list={{ active: current === "old" }}>2018</a>
 	<a href="/new" class="nav-btn" class:list={{ active: current === "new" }}>2024</a>
@@ -51,6 +51,7 @@ const { current } = Astro.props;
 
 		z-index: 7;
 
+		overflow: hidden;
 		transition: 300ms;
 
 		a.nav-btn {
@@ -86,7 +87,6 @@ const { current } = Astro.props;
 		&.closed {
 			justify-content: flex-end;
 			width: 42px;
-			overflow: hidden;
 
 			.toggle {
 				transform: rotate(180deg);
